@@ -17,4 +17,9 @@ export class AuthService {
       return 500;
     }
   }
+
+  logout()
+  {
+    
+  }
 }
