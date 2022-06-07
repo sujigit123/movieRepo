@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import{HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor() { }
+  kkl:any;
+  constructor(private httpCl:HttpClient) { }
 
   login(unm:string, pwd:string)
   {
-    if(unm==="sujit" && pwd==="sahoo")
+    var kku;
+    var jku=this.httpCl.get('http://localhost/API1/api/values?uid=sujit').subscribe(data=>{this.kkl=data;});
+    if(this.kkl.UID===unm && this.kkl.PWD===pwd)
     {
       return 200;
     }
